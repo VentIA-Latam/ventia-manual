@@ -1,0 +1,88 @@
+---
+title: Dashboard
+---
+
+import { Callout } from 'nextra/components'
+import { Screenshot } from '../components/Screenshot'
+import { DataTable } from '../components/DataTable'
+import { FAQ } from '../components/FAQ'
+
+# Dashboard
+
+## Introducción
+
+El Dashboard es la pantalla principal de Ventia. Te permite ver de un vistazo cómo va tu negocio: cuántos pedidos tuviste, cuánto vendiste, cuáles son tus productos más vendidos y dónde están comprando tus clientes. Es tu punto de partida cada vez que inicias sesión.
+
+## Acceso
+
+En el menú lateral izquierdo, haz clic en **Dashboard** (primera opción de la lista con ícono de cuadrícula).
+
+## Vista general
+
+<Screenshot src="/screenshots/dashboard-kpis.png" caption="Dashboard principal — KPIs, Actividad reciente y Top productos" />
+
+### ① KPIs en tiempo real
+
+Tres tarjetas resumen el estado del período seleccionado:
+
+<DataTable
+  headers={['Tarjeta', 'Qué muestra']}
+  rows={[
+    ['<strong style="color:#fff">Total Pedidos</strong>', 'Cantidad de pedidos recibidos en el período seleccionado'],
+    ['<strong style="color:#fff">Pendientes de Pago</strong>', 'Pedidos que aún no tienen pago confirmado. Muestra "Todo al día" cuando no hay pendientes'],
+    ['<strong style="color:#fff">Ventas (Hoy)</strong>', 'Monto total de ventas de órdenes validadas (en soles S/). Solo cuenta órdenes validadas'],
+  ]}
+/>
+
+### ② Selector de período
+
+En la esquina superior derecha verás el selector de fecha. Por defecto muestra "Hoy". Haz clic para cambiar el rango y analizar otros períodos.
+
+### ③ Actividad reciente
+
+Muestra los últimos 5 pedidos con: nombre del cliente, ID, fecha y estado (Pagado o Pendiente). También indica el resumen: cuántos pagados y cuántos pendientes del total.
+
+### ④ Top productos
+
+Panel en la parte derecha que muestra el ranking de tus productos más vendidos en el período seleccionado, con su nombre, cantidad de unidades vendidas y monto total generado.
+
+## Mapa de ventas
+
+<Screenshot src="/screenshots/dashboard-mapa.png" caption="Mapa de ventas geográfico con heatmap por distrito" />
+
+Debajo de los paneles principales encontrarás el **Mapa de ventas**, un mapa geográfico interactivo que muestra un heatmap de pedidos por zona. Puedes hacer zoom con los botones + / − de la esquina superior izquierda.
+
+<DataTable
+  headers={['Color', 'Nivel de pedidos']}
+  rows={[
+    ['🔴 Rojo intenso', 'Muy alto'],
+    ['🔴 Rojo', 'Alto'],
+    ['🟠 Naranja', 'Medio-alto'],
+    ['🟡 Amarillo', 'Medio'],
+    ['🟢 Verde claro', 'Medio-bajo'],
+    ['🔵 Azul claro', 'Bajo'],
+    ['🔵 Azul muy claro', 'Muy bajo'],
+    ['⚪ Sin color', 'Sin pedidos'],
+  ]}
+/>
+
+<Callout type="info">
+  Usa el mapa para identificar en qué distritos se concentran tus ventas y enfocar tus esfuerzos de entrega o marketing.
+</Callout>
+
+## Preguntas frecuentes
+
+<FAQ items={[
+  {
+    q: '¿Por qué las Ventas del día muestran S/0 si tengo pedidos?',
+    a: 'Las ventas solo cuentan pedidos con pago validado. Los pedidos pendientes no se suman hasta que se confirme el pago.',
+  },
+  {
+    q: '¿Puedo ver datos de semanas o meses anteriores?',
+    a: "Sí. Haz clic en el selector de período (donde dice 'Hoy') y elige el rango que necesites.",
+  },
+  {
+    q: '¿Qué significa el saludo "Buenas tardes / días" en el Dashboard?',
+    a: 'Es un saludo personalizado según la hora del día. Debajo muestra "Resumen de operación · Hoy" indicando que los datos mostrados corresponden al día actual.',
+  },
+]} />

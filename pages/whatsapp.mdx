@@ -1,0 +1,64 @@
+---
+title: WhatsApp
+---
+
+import { Callout } from 'nextra/components'
+import { Screenshot } from '../components/Screenshot'
+import { FAQ } from '../components/FAQ'
+
+# WhatsApp
+
+## Introducción
+
+En esta sección conectas y administras tus números de WhatsApp Business con Ventia. Una vez conectados, el agente IA podrá recibir y responder mensajes de tus clientes de forma automática, gestionar ventas y coordinar entregas.
+
+## Acceso
+
+En el menú lateral, haz clic en **WhatsApp** (ícono de chat).
+
+## Canales de WhatsApp conectados
+
+<Screenshot src="/screenshots/whatsapp-canales.png" caption="Canales de WhatsApp — dos números conectados con estado y plantillas" />
+
+Verás una tarjeta por cada número de WhatsApp Business conectado. Puedes tener varios números activos al mismo tiempo. Cada tarjeta muestra:
+
+- Número de teléfono del canal (ej: +51944053366)
+- Nombre del negocio asociado (ej: La Doré WhatsApp)
+- Estado: **● Conectado** / **● Desconectado**
+- Plantillas: cantidad de plantillas aprobadas por Meta disponibles
+- Último sync: hace cuántos días se sincronizó con Meta
+
+El botón **+ Conectar número** (esquina superior derecha) sirve para agregar un nuevo número de WhatsApp Business.
+
+## ¿Qué son las plantillas de WhatsApp?
+
+Las plantillas son mensajes prediseñados y aprobados por Meta (empresa dueña de WhatsApp) que puedes enviar a tus clientes cuando la ventana de 24 horas haya expirado.
+
+<Callout type="warning">
+  WhatsApp solo permite enviar mensajes de texto libre dentro de las 24 horas siguientes al último mensaje del cliente. Pasado ese tiempo, solo puedes usar plantillas aprobadas.
+</Callout>
+
+<Callout type="info">
+  Mantén tus plantillas sincronizadas desde el panel de Meta Business. Si el contador de plantillas aparece en 0, puede que necesites re-sincronizar el canal.
+</Callout>
+
+## Preguntas frecuentes
+
+<FAQ items={[
+  {
+    q: '¿Puedo conectar más de un número?',
+    a: 'Sí. Ventia permite gestionar múltiples canales de WhatsApp Business desde una sola cuenta. Cada número aparece como una tarjeta independiente.',
+  },
+  {
+    q: '¿Cómo creo nuevas plantillas?',
+    a: 'Las plantillas se crean y aprueban en el panel de Meta Business. Una vez aprobadas, aparecerán sincronizadas automáticamente en Ventia.',
+  },
+  {
+    q: "¿Qué pasa si el estado del canal aparece como 'Desconectado'?",
+    a: 'Contacta al equipo de Ventia para reconectar el canal. Mientras esté desconectado, el agente IA no podrá enviar ni recibir mensajes por ese número.',
+  },
+  {
+    q: '¿Qué significa el "Último sync"?',
+    a: 'Indica hace cuánto tiempo Ventia se sincronizó con Meta para actualizar las plantillas disponibles. Si el sync tiene muchos días, puede que algunas plantillas no estén actualizadas.',
+  },
+]} />

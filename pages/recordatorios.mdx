@@ -1,0 +1,88 @@
+---
+title: Recordatorios
+---
+
+import { Callout } from 'nextra/components'
+import { Screenshot } from '../components/Screenshot'
+import { DataTable } from '../components/DataTable'
+import { FAQ } from '../components/FAQ'
+
+# Recordatorios
+
+## Introducción
+
+Los Recordatorios son mensajes automáticos de seguimiento que Ventia envía a tus clientes según la temperatura del lead y una ventana de tiempo. Puedes editar el texto de cada mensaje, previsualizarlo como se verá en WhatsApp y activar o desactivar el sistema con un solo clic.
+
+## Acceso
+
+En el menú lateral, haz clic en **Recordatorios** (ícono de reloj).
+
+## Activar o desactivar Recordatorios
+
+En la parte superior de la pantalla verás el título **Recordatorios** junto a un toggle azul. Cuando el toggle está encendido (azul), los mensajes automáticos están activos. Puedes apagarlo en cualquier momento sin perder la configuración.
+
+<Callout type="warning">
+  Si desactivas el toggle, Ventia dejará de enviar recordatorios automáticos a tus clientes hasta que lo vuelvas a activar.
+</Callout>
+
+## Segmentación por temperatura
+
+Los recordatorios están organizados en tres pestañas según la temperatura del lead. Cada pestaña tiene su propio conjunto de mensajes:
+
+<DataTable
+  headers={['Pestaña', 'A quién se envía']}
+  rows={[
+    ['❄️ Cold', 'Leads fríos — poca interacción, baja intención de compra'],
+    ['🌡️ Warm', 'Leads tibios — interés moderado, evaluando opciones'],
+    ['🔥 Hot', 'Leads calientes — alta intención de compra, listos para cerrar'],
+  ]}
+/>
+
+## Editar un recordatorio
+
+<Screenshot src="/screenshots/recordatorios.png" caption="Editor de recordatorio — pestaña Cold activa con previsualización en tiempo real" />
+
+Dentro de cada pestaña verás uno o más recordatorios numerados. Cada uno indica la **ventana de tiempo** en que se enviará (ej: _Primer recordatorio (3–4h)_). Para editar:
+
+1. Selecciona la pestaña de temperatura: **Cold**, **Warm** o **Hot**
+2. Haz clic dentro del campo de texto del recordatorio que quieres modificar
+3. Escribe o edita el mensaje (máximo 300 caracteres — el contador aparece en la esquina inferior derecha del campo)
+4. Revisa la **Previsualización** en el panel derecho para ver cómo lucirá el mensaje en WhatsApp
+5. Haz clic en **Guardar cambios** para confirmar
+
+## Panel de Previsualización
+
+A la derecha del editor encontrarás el panel de **Previsualización**. Muestra en tiempo real cómo verá el cliente el mensaje en su WhatsApp, incluyendo emojis, formato y hora de envío estimada.
+
+<Callout type="info">
+  Usa la previsualización antes de guardar para asegurarte de que el mensaje se ve bien y no tiene errores de redacción.
+</Callout>
+
+## Notificaciones del navegador
+
+Al ingresar a la sección verás un banner en la parte superior invitándote a activar las notificaciones del navegador. Al hacer clic en **Activar**, recibirás alertas cuando lleguen nuevos mensajes de clientes.
+
+## Preguntas frecuentes
+
+<FAQ items={[
+  {
+    q: '¿Los recordatorios se envían por WhatsApp?',
+    a: 'Sí, los recordatorios se envían a través del canal de WhatsApp Business que tengas conectado en la plataforma.',
+  },
+  {
+    q: '¿Puedo tener mensajes distintos para cada temperatura?',
+    a: 'Sí. Cada pestaña (Cold, Warm, Hot) tiene su propio editor de mensajes, completamente independiente.',
+  },
+  {
+    q: '¿Qué significa la ventana de tiempo en cada recordatorio?',
+    a: 'Es el intervalo después del último mensaje del cliente en que Ventia enviará el recordatorio automáticamente. Por ejemplo, "Primer recordatorio (3–4h)" se enviará entre 3 y 4 horas después del último contacto.',
+  },
+  {
+    q: '¿Cuántos recordatorios puedo configurar por temperatura?',
+    a: 'Puedes tener múltiples recordatorios numerados por pestaña. Cada uno se envía en una ventana de tiempo diferente.',
+  },
+  {
+    q: '¿Qué pasa si desactivo y vuelvo a activar el toggle?',
+    a: 'Tu configuración de mensajes se mantiene intacta. Solo se pausan y reanudan los envíos automáticos.',
+  },
+]} />

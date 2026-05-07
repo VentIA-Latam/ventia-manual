@@ -1,0 +1,124 @@
+---
+title: Pedidos
+---
+
+import { Callout } from 'nextra/components'
+import { Screenshot } from '../components/Screenshot'
+import { DataTable } from '../components/DataTable'
+import { FAQ } from '../components/FAQ'
+
+# Pedidos
+
+## Introducción
+
+La sección de Pedidos es donde gestionas todas las órdenes de venta de tu negocio: las que generó el agente IA automáticamente y las que crees tú de forma manual. Desde aquí puedes ver el estado de cada pedido, filtrar, emitir comprobantes y más.
+
+## Acceso
+
+En el menú lateral, haz clic en **Pedidos** (ícono de carrito).
+
+## Listado de Pedidos
+
+<Screenshot src="/screenshots/pedidos-listado.png" caption="Listado de Pedidos — todas las órdenes con estado de pago y facturación" />
+
+La tabla muestra todos tus pedidos con las siguientes columnas:
+
+<DataTable
+  headers={['Columna', 'Descripción']}
+  rows={[
+    ['<code style="color:#29abe2">ID Draft</code>', 'Número interno asignado al inicio del pedido. Puede aparecer como "N/A" si el pedido vino directamente de Shopify'],
+    ['<code style="color:#29abe2">ID Orden</code>', 'Número de orden con fecha y hora de creación'],
+    ['Cliente', 'Nombre e email del comprador (con avatar de iniciales)'],
+    ['Canal', 'Origen del pedido — el ícono de Shopify indica pedido desde tienda web'],
+    ['Estado Pago', '<span style="color:#22c55e">Pagado</span> (verde) / <span style="color:#f59e0b">Pendiente</span> (amarillo)'],
+    ['Facturación', 'Estado del comprobante: "Sin emitir" si aún no se generó'],
+    ['Monto', 'Valor total del pedido en soles (S/)'],
+    ['Acciones', 'Menú ⋮ con opciones adicionales'],
+  ]}
+/>
+
+### Herramientas de búsqueda y filtrado
+
+- **Barra de búsqueda:** escribe el ID del pedido o nombre del cliente
+- **Estado de Pago:** filtra entre Pagado y Pendiente
+- **Canal:** filtra por el canal de origen del pedido
+- **Exportar** → descarga la lista en formato Excel
+- **Nuevo Pedido** → crea un pedido manualmente
+
+## Detalle de un Pedido
+
+Haz clic sobre cualquier fila del listado para ver el detalle completo.
+
+<Screenshot src="/screenshots/pedidos-detalle.png" caption="Detalle del pedido — información del cliente, productos y paneles laterales" />
+
+### Cabecera del pedido
+
+- Número de pedido (ej: `Pedido #N/A`)
+- Fecha y hora de creación
+- Estado: **Pago Validado**
+- Botones de acción: **Crear Comprobante** y **Cancelar Pedido**
+
+### Información del Cliente
+
+- Nombre completo del comprador
+- Email de contacto
+- Dirección de envío (puede aparecer como "Información no disponible" si no fue registrada)
+
+### Tabla de Productos
+
+Lista todos los ítems del pedido con columnas: **Producto** (nombre + SKU), **Precio Unitario**, **Cant.** y **Subtotal**.
+
+<Screenshot src="/screenshots/pedidos-resumen.png" caption="Panel derecho — Acciones Requeridas, Resumen Financiero, Notas y Comprobantes Emitidos" />
+
+### Resumen Financiero
+
+<DataTable
+  headers={['Concepto', 'Descripción']}
+  rows={[
+    ['Subtotal', 'Suma de los productos sin impuestos'],
+    ['IGV (18%)', 'Impuesto General a las Ventas calculado automáticamente'],
+    ['<strong style="color:#fff">Total</strong>', 'Monto final que pagó el cliente (resaltado en azul)'],
+  ]}
+/>
+
+### Notas
+
+Panel que muestra información adicional del pedido, como el origen de la orden (ej: "Orden #XXXXX creada desde Shopify web checkout").
+
+### Comprobantes Emitidos
+
+Muestra si ya se generó una boleta o factura. Si no hay comprobante, aparece el mensaje "No se han emitido comprobantes para esta orden" y el botón **Emitir Comprobante**.
+
+## Paso a paso: Emitir un comprobante
+
+1. Ve a **Pedidos** en el menú lateral
+2. Haz clic en el pedido que quieres facturar
+3. Verifica que el estado sea **Pago Validado**
+4. En el panel **Acciones Requeridas**, haz clic en **Crear Comprobante**
+5. Completa los datos del cliente (RUC/DNI si corresponde)
+6. Confirma la emisión — el comprobante se envía a SUNAT automáticamente
+
+<Callout type="warning">
+  Solo puedes emitir comprobantes de pedidos con pago validado. Los pedidos pendientes no permiten generar comprobantes.
+</Callout>
+
+## Preguntas frecuentes
+
+<FAQ items={[
+  {
+    q: '¿Por qué el ID Draft aparece como "N/A"?',
+    a: 'Esto ocurre cuando el pedido fue creado directamente desde Shopify (checkout web) y no pasó por el flujo del agente IA. El ID de Orden de Shopify sigue siendo válido.',
+  },
+  {
+    q: '¿Qué significa el ícono de Shopify en la columna Canal?',
+    a: 'Indica que el pedido llegó desde la tienda web de Shopify, no a través del agente IA de WhatsApp.',
+  },
+  {
+    q: '¿Puedo cancelar un pedido ya pagado?',
+    a: "Sí, el botón 'Cancelar Pedido' (rojo) está disponible en la cabecera del detalle. Recuerda que esta acción no puede deshacerse.",
+  },
+  {
+    q: '¿El IGV se calcula automáticamente?',
+    a: 'Sí. Ventia calcula el 18% de IGV de forma automática sobre el subtotal de cada pedido.',
+  },
+]} />

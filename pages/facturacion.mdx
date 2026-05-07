@@ -1,0 +1,133 @@
+---
+title: Facturación
+---
+
+import { Callout } from 'nextra/components'
+import { Screenshot } from '../components/Screenshot'
+import { DataTable } from '../components/DataTable'
+import { FAQ } from '../components/FAQ'
+
+# Facturación
+
+## Introducción
+
+En Facturación gestionas todos los comprobantes electrónicos de tu negocio: boletas de venta y facturas, con validación automática ante la SUNAT. Ventia emite los comprobantes electrónicamente y reporta en tiempo real si fueron aceptados o rechazados.
+
+## Acceso
+
+En el menú lateral, haz clic en **Facturación** (ícono de comprobante).
+
+## Comprobantes Electrónicos
+
+<Screenshot src="/screenshots/facturacion-listado.png" caption="Listado de Comprobantes Electrónicos — boletas y facturas con estado SUNAT" />
+
+La tabla muestra todos tus comprobantes emitidos:
+
+<DataTable
+  headers={['Columna', 'Descripción']}
+  rows={[
+    ['<code style="color:#29abe2">Serie-Número</code>', 'Código único del comprobante (ej: BV01-00000017)'],
+    ['Tipo', 'Boleta de Venta Electrónica / Factura Electrónica'],
+    ['Cliente', 'Nombre completo del comprador'],
+    ['Documento', 'RUC o DNI del cliente'],
+    ['Monto', 'Total del comprobante en PEN (soles)'],
+    ['Fecha', 'Fecha de emisión'],
+    ['Estado', '<span style="color:#22c55e">Validado por SUNAT</span> / <span style="color:#ef4444">Error en SUNAT</span>'],
+  ]}
+/>
+
+### Herramientas de búsqueda
+
+- Búsqueda por serie, nombre de cliente, RUC o DNI
+- Filtro Tipo: Boleta / Factura
+- Filtro Estado: Validado / Error
+- **Exportar** → descarga el listado completo
+- **+ Nueva Factura** → crea un comprobante manualmente
+
+## Detalle de un comprobante
+
+<Screenshot src="/screenshots/facturacion-detalle.png" caption="Detalle de Boleta de Venta Electrónica — emisor, cliente, ítems y acciones" />
+
+Al hacer clic en el ícono ⋮ y seleccionar **Ver detalles**, se abre la vista completa del comprobante con:
+
+### Emisor
+
+- Razón Social del negocio emisor
+- RUC del emisor
+
+### Información del Cliente
+
+- Nombre / Razón Social del comprador
+- Tipo y número de documento (DNI o RUC)
+
+### Detalle de Ítems
+
+- Nombre del producto + SKU
+- Cantidad y precio unitario
+- Subtotal por ítem
+
+### Desglose de Montos
+
+<DataTable
+  headers={['Concepto', 'Descripción']}
+  rows={[
+    ['Subtotal (Op. Gravada)', 'Suma de los productos sin impuestos'],
+    ['IGV (18%)', 'Impuesto calculado automáticamente'],
+    ['<strong style="color:#fff">Total</strong>', 'Monto final resaltado en azul'],
+  ]}
+/>
+
+### Información de Emisión
+
+- Fecha de Emisión y Fecha de Validación por SUNAT
+- **Ticket eFact** — código único de validación electrónica ante la SUNAT
+
+### Orden Relacionada
+
+Botón **Ver Orden #XXX** que te lleva directamente al pedido que originó este comprobante.
+
+## Acciones por comprobante
+
+<DataTable
+  headers={['Acción', 'Descripción']}
+  rows={[
+    ['Enviar por Correo', 'Envía el comprobante al email del cliente'],
+    ['Descargar PDF', 'Descarga el comprobante en formato PDF imprimible'],
+    ['Descargar XML', 'Descarga el XML oficial requerido por la SUNAT'],
+  ]}
+/>
+
+## Estados de comprobantes
+
+<DataTable
+  headers={['Estado', 'Significado', 'Qué hacer']}
+  rows={[
+    ['<span style="color:#22c55e">Validado por SUNAT</span>', 'El comprobante fue aceptado correctamente', 'Ninguna acción requerida'],
+    ['<span style="color:#ef4444">Error en SUNAT</span>', 'Hubo un problema en la validación', 'Contacta al soporte de Ventia'],
+  ]}
+/>
+
+<Callout type="info">
+  Descarga el XML de tus comprobantes validados y guárdalos como respaldo. Es el documento oficial ante la SUNAT.
+</Callout>
+
+## Preguntas frecuentes
+
+<FAQ items={[
+  {
+    q: '¿Cuál es la diferencia entre una boleta y una factura?',
+    a: 'La boleta se emite a consumidores finales con DNI. La factura se emite a empresas con RUC y permite deducir el IGV como crédito fiscal.',
+  },
+  {
+    q: "¿Qué hago si un comprobante aparece con 'Error en SUNAT'?",
+    a: 'No intentes reemitirlo tú solo. Comunícate con el equipo de Ventia para que puedan corregir el problema sin generar duplicados.',
+  },
+  {
+    q: '¿Puedo enviar la boleta directamente al cliente?',
+    a: "Sí, usa la opción 'Enviar por Correo' en el detalle del comprobante.",
+  },
+  {
+    q: '¿Qué es el Ticket eFact?',
+    a: 'Es el código único que asigna el sistema de facturación electrónica al validar el comprobante ante la SUNAT. Sirve como constancia de la validación.',
+  },
+]} />

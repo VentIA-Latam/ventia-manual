@@ -1,0 +1,160 @@
+---
+title: Tickets
+---
+
+import { Callout } from 'nextra/components'
+import { Screenshot } from '../components/Screenshot'
+import { DataTable } from '../components/DataTable'
+import { FAQ } from '../components/FAQ'
+
+# Tickets
+
+## Introducción
+
+La sección de Tickets permite a usuarios con rol **ADMIN** reportar problemas, solicitar ajustes o proponer mejoras del agente de IA directamente. Los tickets se envían al equipo de soporte de Ventia, que los clasifica y gestiona automáticamente a través de n8n y ClickUp.
+
+## Acceso
+
+En el menú lateral, haz clic en **Tickets** (ícono de soporte).
+
+<Callout type="warning">
+  Solo usuarios con rol **ADMIN** pueden ver y crear tickets. Cualquier otro rol es redirigido automáticamente a `/dashboard/get-started`.
+</Callout>
+
+## Tipos de ticket
+
+Al abrir la vista, el primer paso es elegir el tipo de ticket:
+
+<DataTable
+  headers={['Tipo', 'Cuándo usarlo']}
+  rows={[
+    ['<strong style="color:#ef4444">Incidencia Crítica</strong>', 'El agente está fallando o comportándose de forma incorrecta y afecta la operación inmediata. Ej: el bot no responde, envía mensajes incorrectos, rompe el flujo de atención.'],
+    ['<strong style="color:#f59e0b">Ajuste al Agente</strong>', 'Cambios menores de comportamiento o contenido. Ej: modificar el saludo, ajustar una respuesta frecuente, cambiar un flujo menor.'],
+    ['<strong style="color:#22c55e">Desarrollo Adicional</strong>', 'Mejoras o cambios estructurales profundos. Ej: nuevo flujo de ventas, integración adicional, cambio de personalidad del bot.'],
+  ]}
+/>
+
+Seleccionar el tipo es obligatorio. Los campos del formulario cambian según el tipo elegido.
+
+## Campos del formulario
+
+<Screenshot src="/screenshots/tickets-vista.png" caption="Formulario de creación de ticket — tipo, título, descripción y campos condicionales" />
+
+### 1. Tipo de ticket (Requerido)
+
+Selector visual con tres tarjetas. Se puede cambiar en cualquier momento antes de enviar.
+
+### 2. Título (Requerido)
+
+Resumen corto del problema o solicitud. **Máximo 100 caracteres.** Aparece un contador en tiempo real.
+
+### 3. Descripción (Requerido)
+
+Explicación detallada del problema o solicitud. **Mínimo 10 caracteres, máximo 5 000.**
+
+El campo muestra una **barra de progreso con código de color:**
+
+<DataTable
+  headers={['Color', 'Estado', 'Rango']}
+  rows={[
+    ['<strong style="color:#f59e0b">Amarillo</strong>', 'Inválido — muy corto', 'Menos de 10 caracteres'],
+    ['<strong style="color:#22c55e">Verde</strong>', 'Válido', 'Entre 10 y 4 500 caracteres'],
+    ['<strong style="color:#ef4444">Rojo</strong>', 'Cerca del límite', 'Más de 4 500 caracteres'],
+  ]}
+/>
+
+Recomendaciones para una buena descripción:
+- Indicar fecha y hora aproximada del incidente
+- Describir qué se esperaba vs. qué ocurrió
+- Si es un bug, incluir los pasos para reproducirlo
+- Incluir el ID del chat si está disponible
+
+### 4. Conversación relacionada (Solo Incidencias Críticas — Requerido)
+
+Dropdown con búsqueda para vincular el ticket a una conversación existente. Aparece únicamente cuando el tipo seleccionado es **Incidencia Crítica**.
+
+- Busca por nombre del contacto o número de teléfono
+- Formato: "**Nombre Contacto — +Número**" (ej: "Renzo — +51904890457")
+- Si no hay conversaciones disponibles, detalla el problema al máximo en la descripción
+
+### 5. Archivos adjuntos (Solo Incidencias Críticas — Opcional)
+
+Permite adjuntar evidencia multimedia. Aparece únicamente para **Incidencias Críticas**.
+
+**Formatos y límites de tamaño:**
+
+<DataTable
+  headers={['Formato', 'Límite por archivo']}
+  rows={[
+    ['JPG / PNG', '10 MB'],
+    ['PDF', '20 MB'],
+    ['MP4', '150 MB'],
+  ]}
+/>
+
+**Límite total:** hasta **10 archivos** por ticket.
+
+**Cómo adjuntar:**
+- Arrastra y suelta archivos sobre la zona de carga
+- Haz clic en la zona para abrir el selector de archivos del sistema
+- Con archivos ya cargados, haz clic en el botón **+** para agregar más
+
+**Vista previa:**
+- Las imágenes (JPG/PNG) muestran una miniatura
+- Los PDFs muestran un ícono de documento rojo
+- Los videos MP4 muestran un ícono de video azul
+
+Para eliminar un archivo, pasa el cursor sobre la miniatura y haz clic en la **X** que aparece.
+
+## Barra lateral
+
+En pantallas grandes aparece una barra lateral a la derecha del formulario con información en tiempo real:
+
+- **Resumen:** tipo seleccionado, longitud de la descripción y conversación vinculada
+- **Consejos:** sugerencias para escribir un ticket efectivo
+- **Tiempos de respuesta estimados:**
+
+<DataTable
+  headers={['Tipo de ticket', 'Tiempo estimado de respuesta']}
+  rows={[
+    ['🔴 Incidencia Crítica', 'Menos de 2 horas'],
+    ['🟡 Ajuste al Agente', 'Menos de 24 horas'],
+    ['🟢 Desarrollo Adicional', 'Menos de 5 días'],
+  ]}
+/>
+
+## Botones de la barra inferior
+
+- **Limpiar** — Resetea todos los campos al estado inicial. Los archivos seleccionados también se eliminan.
+- **Enviar Ticket** — Valida y envía. Permanece deshabilitado mientras haya errores de validación o durante el envío.
+
+
+
+## Preguntas frecuentes
+
+<FAQ items={[
+  {
+    q: '¿Quién puede crear tickets?',
+    a: 'Solo usuarios con rol ADMIN pueden ver y crear tickets. Cualquier otro rol es redirigido automáticamente. Si no ves la opción en el menú, contacta al administrador de tu cuenta.',
+  },
+  {
+    q: '¿Dónde van mis tickets?',
+    a: 'Los tickets se envían al webhook de n8n, que crea automáticamente una tarea en ClickUp con todos los datos. El equipo de soporte los revisa y te contactará si necesita más información.',
+  },
+  {
+    q: '¿Cuánto tiempo tarda en responder?',
+    a: 'Las Incidencias Críticas se atienden en menos de 2 horas, los Ajustes en menos de 24 horas, y los Desarrollos Adicionales en menos de 5 días hábiles.',
+  },
+  {
+    q: '¿Puedo adjuntar archivos a un Ajuste o Desarrollo?',
+    a: 'No, los archivos solo se pueden adjuntar en Incidencias Críticas. Para los otros tipos, describe el problema o propuesta con el máximo detalle en el campo de texto.',
+  },
+  {
+    q: '¿Qué pasa si me equivoco al enviar un ticket?',
+    a: 'Por ahora no es posible editar o eliminar tickets después de enviar. Si es un error, describe la corrección en un nuevo ticket o contacta directamente al equipo de soporte.',
+  },
+  {
+    q: '¿Hay contacto directo con el equipo?',
+    a: 'Para urgencias, escribe a soporte@ventia-latam.com o contacta por WhatsApp al +51 958 258 648.',
+  },
+]} />

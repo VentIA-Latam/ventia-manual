@@ -1,0 +1,159 @@
+---
+title: Conversaciones
+---
+
+import { Callout } from 'nextra/components'
+import { Screenshot } from '../components/Screenshot'
+import { DataTable } from '../components/DataTable'
+import { FAQ } from '../components/FAQ'
+import { Steps, Step } from '../components/Steps'
+
+# Conversaciones
+
+## Introducción
+
+El módulo de Conversaciones es el CRM integrado de Ventia. Desde aquí puedes ver y responder todos los chats de WhatsApp, monitorear las ventas del agente IA y clasificar a tus prospectos por temperatura e interés.
+
+## Acceso
+
+En el menú lateral, haz clic en **Conversaciones**. El menú se expandirá mostrando tres subcategorías.
+
+## Bandeja de Chats
+
+<Screenshot src="/screenshots/conversaciones-chat.png" caption="Módulo de Conversaciones — bandeja izquierda, chat activo y panel de contacto" />
+
+### Subcategorías
+
+<DataTable
+  headers={['Subcategoría', 'Qué muestra']}
+  rows={[
+    ['<strong style="color:#fff">Todas</strong>', 'Todas las conversaciones (con contador de no leídas en azul)'],
+    ['<strong style="color:#fff">Ventas</strong>', 'Solo conversaciones donde el agente IA generó un pedido'],
+    ['<strong style="color:#fff">No atendidas</strong>', 'Conversaciones sin respuesta del agente humano'],
+  ]}
+/>
+
+### Panel izquierdo — Lista de chats
+
+- 🔍 Buscador: "Buscar o iniciar chat"
+- Filtros rápidos: **Etiquetas**, **Fecha**, **Filtros**
+- Cada conversación muestra: avatar con iniciales, nombre, hora, último mensaje y etiqueta de color asignada
+
+### Etiquetas de conversación
+
+Cada conversación puede tener una etiqueta de color que ayuda a clasificar al contacto de un vistazo:
+
+- 🟠 **en-revisión** — conversación bajo seguimiento manual
+- 🔴 **soporte-humano** — requiere atención de un agente humano
+- 🟢 **cliente potencial** — lead con intención de compra
+
+<Callout type="info">
+  Puedes crear tus propias etiquetas desde el botón **+ Crear etiqueta** en el panel de etiquetas. Úsalas para organizar tu pipeline de ventas.
+</Callout>
+
+## Vista de conversación
+
+Al hacer clic en cualquier conversación de la lista, verás el historial completo del chat con el cliente. Los mensajes del agente IA aparecen a la derecha (en azul) y los del cliente a la izquierda.
+
+La barra inferior de mensajes incluye: emojis, adjuntos, **audio de WhatsApp** (micrófono) y campo de texto libre.
+
+## Menú de opciones de la conversación (⋮)
+
+<Screenshot src="/screenshots/conversaciones-menu.png" caption="Menú de opciones — toggles Agente IA, Actividad e Información del contacto" />
+
+<DataTable
+  headers={['Opción', 'Descripción']}
+  rows={[
+    ['<strong style="color:#fff">Agente IA</strong> (toggle)', 'Activa o desactiva el bot para esta conversación específica'],
+    ['<strong style="color:#fff">Actividad</strong> (toggle)', 'Activa o desactiva el registro de actividad del chat'],
+    ['<strong style="color:#fff">Información del contacto</strong>', 'Abre el panel lateral con los datos del cliente'],
+  ]}
+/>
+
+<Callout type="warning">
+  Si desactivas el Agente IA en una conversación, el bot dejará de responder automáticamente. Úsalo cuando quieras atender personalmente a un cliente.
+</Callout>
+
+## Panel de Información del Contacto
+
+<Screenshot src="/screenshots/conversaciones-contacto.png" caption="Panel de información del contacto — etapa, temperatura, etiquetas y detalles" />
+
+### ① Etapa del funnel de ventas
+
+Selector en la parte superior del panel (ej: **Pre-venta**). Haz clic para cambiarlo según la situación del cliente:
+
+<DataTable
+  headers={['Etapa', 'Significado']}
+  rows={[
+    ['Pre-venta', 'El cliente está explorando productos, aún no decidió comprar'],
+    ['Venta', 'El cliente tiene una compra en proceso'],
+    ['Post-venta', 'El cliente ya compró y está en seguimiento'],
+  ]}
+/>
+
+### ② Contacto
+
+Muestra el número de teléfono del cliente (ej: +51951752355).
+
+### ③ Temperatura del lead
+
+Tres botones para clasificar el nivel de interés con un solo clic:
+
+<DataTable
+  headers={['Temperatura', 'Significado']}
+  rows={[
+    ['❄️ Frío', 'Poca interacción, baja intención de compra'],
+    ['🌡️ Tibio', 'Interés moderado, está evaluando opciones'],
+    ['🔥 Caliente', 'Alta intención de compra, listo para cerrar'],
+  ]}
+/>
+
+### ④ Etiquetas
+
+Etiquetas asignadas al contacto (ej: "en-revisión"). Usa el botón **+** para agregar nuevas.
+
+### ⑤ Detalles
+
+- ID de la conversación
+- Cantidad de mensajes intercambiados
+- Fecha de inicio del chat
+
+## Paso a paso: Tomar control manual de una conversación
+
+<Steps>
+  <Step number={1} title="Abre Conversaciones">Ve a **Conversaciones** en el menú lateral.</Step>
+  <Step number={2} title="Selecciona el chat">Haz clic en la conversación que deseas atender manualmente.</Step>
+  <Step number={3} title="Abre el menú de opciones">Haz clic en el ícono **⋮** (tres puntos) en la esquina superior derecha.</Step>
+  <Step number={4} title="Desactiva el Agente IA">Desactiva el toggle **Agente IA** — cambiará de azul a gris.</Step>
+  <Step number={5} title="Escribe tu mensaje">Ahora puedes escribir tus mensajes directamente en el campo de texto.</Step>
+  <Step number={6} title="Reactiva el bot cuando termines">Cuando quieras que el bot retome la atención, vuelve a activar el toggle.</Step>
+</Steps>
+
+<Callout type="info">
+  Antes de retomar el control, lee el historial del chat para saber qué información ya le dio el agente IA al cliente.
+</Callout>
+
+## Preguntas frecuentes
+
+<FAQ items={[
+  {
+    q: '¿Cómo sé cuándo el agente IA cerró una venta?',
+    a: "Las conversaciones donde se generó un pedido aparecen automáticamente en la sección 'Ventas' del submenú lateral.",
+  },
+  {
+    q: '¿Puedo buscar una conversación por nombre de cliente?',
+    a: 'Sí, usa la barra de búsqueda "Buscar o iniciar chat" en la parte superior del panel de chats.',
+  },
+  {
+    q: '¿Qué pasa si la ventana de 24hs expiró y quiero contactar al cliente?',
+    a: 'Debes enviar una plantilla de WhatsApp aprobada. En la barra de mensajes, haz clic en el ícono de WhatsApp para elegir la plantilla disponible.',
+  },
+  {
+    q: '¿Puedo enviar audios desde la plataforma?',
+    a: 'Sí. La barra de mensajes incluye un botón de micrófono para grabar y enviar audios de WhatsApp directamente desde Ventia.',
+  },
+  {
+    q: '¿Cómo creo etiquetas personalizadas?',
+    a: "En el panel de etiquetas, desplázate hasta el final y usa el botón '+ Crear etiqueta'. Puedes asignarle un nombre y color.",
+  },
+]} />
