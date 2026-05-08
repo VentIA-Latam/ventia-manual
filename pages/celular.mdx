@@ -1,0 +1,181 @@
+---
+title: App en Celular (PWA)
+---
+
+import { Callout } from 'nextra/components'
+import { FAQ } from '../components/FAQ'
+import { Steps, Step } from '../components/Steps'
+import { DataTable } from '../components/DataTable'
+
+# App en Celular
+
+## Introducción
+
+Ventia está disponible como **Progressive Web App (PWA)**: puedes instalarla en tu celular directamente desde el navegador, sin necesidad de descargarla desde la tienda de apps. Una vez instalada, recibirás notificaciones push en tiempo real cuando lleguen nuevos chats, igual que una app nativa.
+
+<Callout type="info">
+  La versión móvil de Ventia tiene las mismas funciones que la versión de escritorio. Puedes responder conversaciones, revisar pedidos y consultar el dashboard desde cualquier lugar.
+</Callout>
+
+---
+
+## Requisitos previos
+
+<DataTable
+  headers={['Sistema operativo', 'Navegador recomendado', 'Versión mínima']}
+  rows={[
+    ['iOS (iPhone / iPad)', 'Safari', 'iOS 16.4 o superior'],
+    ['Android', 'Google Chrome', 'Android 8.0 o superior'],
+  ]}
+/>
+
+<Callout type="warning">
+  En iOS, las notificaciones push solo funcionan desde **iOS 16.4 en adelante**. Si tienes una versión anterior, actualiza tu sistema antes de continuar.
+</Callout>
+
+---
+
+## Instalación en iPhone / iPad (iOS)
+
+<Steps>
+  <Step number={1} title="Abre Safari y accede a Ventia">
+    Abre **Safari** en tu iPhone o iPad y navega a la dirección de tu plataforma Ventia (ej: `app.ventia-latam.com`).
+  </Step>
+  <Step number={2} title="Inicia sesión">
+    Ingresa tu usuario y contraseña para entrar a la plataforma.
+  </Step>
+  <Step number={3} title="Toca el botón Compartir">
+    En la barra inferior de Safari, toca el ícono de **Compartir** (cuadrado con flecha hacia arriba ↑).
+  </Step>
+  <Step number={4} title='Selecciona "Añadir a pantalla de inicio"'>
+    Desplázate en el menú de opciones y toca **"Añadir a pantalla de inicio"**. Aparecerá una vista previa del ícono de Ventia.
+  </Step>
+  <Step number={5} title="Confirma la instalación">
+    Toca **"Añadir"** en la esquina superior derecha. El ícono de Ventia aparecerá en tu pantalla de inicio.
+  </Step>
+  <Step number={6} title="Abre la app instalada">
+    Desde tu pantalla de inicio, toca el ícono de **Ventia**. La app se abrirá en pantalla completa, sin la barra de navegación de Safari.
+  </Step>
+  <Step number={7} title="Permite las notificaciones">
+    La primera vez que abras la app instalada, aparecerá un mensaje preguntando si deseas recibir notificaciones. Toca **"Permitir"**.
+  </Step>
+</Steps>
+
+<div style={{ maxWidth: '320px', margin: '1.5rem auto' }}>
+  <iframe
+    width="100%"
+    style={{ aspectRatio: '9/16', borderRadius: '12px' }}
+    src="https://www.youtube.com/embed/5DQANKBo-2Q"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  />
+</div>
+
+---
+
+## Instalación en Android
+
+<Steps>
+  <Step number={1} title="Abre Chrome y accede a Ventia">
+    Abre **Google Chrome** en tu Android y navega a la dirección de tu plataforma Ventia.
+  </Step>
+  <Step number={2} title="Inicia sesión">
+    Ingresa tu usuario y contraseña para entrar a la plataforma.
+  </Step>
+  <Step number={3} title='Toca el menú de Chrome'>
+    Toca el ícono de **tres puntos** (⋮) en la esquina superior derecha de Chrome.
+  </Step>
+  <Step number={4} title='Selecciona "Instalar app" o "Añadir a pantalla de inicio"'>
+    En el menú desplegable, selecciona **"Instalar app"**. En algunos dispositivos esta opción aparece como **"Añadir a pantalla de inicio"**.
+  </Step>
+  <Step number={5} title="Confirma la instalación">
+    En el diálogo que aparece, toca **"Instalar"**. Chrome descargará el ícono y lo agregará a tu pantalla de inicio y cajón de apps.
+  </Step>
+  <Step number={6} title="Abre la app instalada">
+    Busca el ícono de **Ventia** en tu pantalla de inicio o cajón de aplicaciones y ábrelo. La app se abrirá en pantalla completa.
+  </Step>
+  <Step number={7} title="Permite las notificaciones">
+    La primera vez que uses la app, aparecerá una solicitud de permisos. Toca **"Permitir"** para recibir notificaciones de nuevos chats.
+  </Step>
+</Steps>
+
+<div style={{ maxWidth: '320px', margin: '1.5rem auto' }}>
+  <iframe
+    width="100%"
+    style={{ aspectRatio: '9/16', borderRadius: '12px' }}
+    src="https://www.youtube.com/embed/kH6x127q5Eo"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowFullScreen
+  />
+</div>
+
+---
+
+## Cómo funcionan las notificaciones
+
+Una vez instalada la app y concedido el permiso, recibirás notificaciones push en tu celular cada vez que:
+
+- Llegue un **nuevo mensaje** de un cliente en cualquier conversación
+- Un cliente responda una campaña o recordatorio
+- Se asigne una conversación a tu usuario
+
+Tocar la notificación te llevará directamente al chat correspondiente dentro de la app.
+
+---
+
+## No me llegan notificaciones
+
+Si instalaste la app pero no estás recibiendo notificaciones, sigue estos pasos según tu sistema operativo:
+
+### En iPhone / iPad (iOS)
+
+<DataTable
+  headers={['Problema', 'Solución']}
+  rows={[
+    ['No aparecía el aviso de permisos al abrir la app', 'Ve a Configuración → Ventia → Notificaciones → activa "Permitir notificaciones"'],
+    ['La app está instalada pero las notificaciones están desactivadas', 'Ve a Configuración → Ventia → Notificaciones y activa todos los interruptores'],
+    ['Tienes el modo "No molestar" o "Concentración" activo', 'Desactívalo en el Centro de Control, o agrega Ventia como excepción'],
+    ['El iPhone tiene iOS 16.3 o anterior', 'Actualiza a iOS 16.4 o superior desde Configuración → General → Actualización de software'],
+    ['Las notificaciones no suenan', 'Verifica que el silenciador lateral esté desactivado y el volumen del sistema no esté en cero'],
+  ]}
+/>
+
+### En Android
+
+<DataTable
+  headers={['Problema', 'Solución']}
+  rows={[
+    ['Bloqueaste las notificaciones al instalar', 'Ve a Configuración → Apps → Ventia → Notificaciones → actívalas'],
+    ['Modo "No interrumpir" activado', 'Desactívalo desde el panel de notificaciones o agrega Ventia como excepción'],
+    ['El fabricante limita las apps en segundo plano', 'Ve a Configuración → Batería → Optimización de batería → busca Ventia → selecciona "No optimizar"'],
+    ['Chrome bloqueó los permisos del sitio', 'En Chrome, toca ⋮ → Configuración del sitio → Notificaciones → permite el sitio de Ventia'],
+    ['La app está desactualizada en caché', 'Cierra y vuelve a abrir la app, o borra el caché de Chrome desde Configuración → Apps → Chrome'],
+  ]}
+/>
+
+---
+
+## Preguntas frecuentes
+
+<FAQ items={[
+  {
+    q: '¿Puedo instalar Ventia en más de un celular?',
+    a: 'Sí. Puedes instalar la app en todos los dispositivos que necesites usando las mismas credenciales. Las notificaciones llegarán a todos los dispositivos donde hayas concedido el permiso.',
+  },
+  {
+    q: '¿La app instalada consume espacio de almacenamiento?',
+    a: 'Muy poco. La PWA guarda únicamente el ícono y configuración básica. No descarga una app completa como las de la tienda de apps.',
+  },
+  {
+    q: '¿Qué pasa si desinstalo la app del celular?',
+    a: 'Simplemente eliminas el acceso directo de tu pantalla de inicio. Tu cuenta y datos en Ventia no se ven afectados. Puedes volver a instalarla cuando quieras repitiendo los pasos de esta guía.',
+  },
+  {
+    q: '¿Las notificaciones funcionan con la pantalla apagada?',
+    a: 'Sí. Las notificaciones push llegan aunque el celular esté con pantalla apagada, siempre que el dispositivo tenga conexión a internet y los permisos estén activados.',
+  },
+  {
+    q: '¿Necesito estar logueado en la app para recibir notificaciones?',
+    a: 'Debes haber iniciado sesión al menos una vez en la app instalada. Mientras tu sesión esté activa, recibirás notificaciones. Si cierras sesión manualmente, deberás volver a ingresar.',
+  },
+]} />
