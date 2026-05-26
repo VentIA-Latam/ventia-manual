@@ -39,9 +39,7 @@ export default {
     ),
   },
   docsRepositoryBase: 'https://ventia-latam.com',
-  footer: {
-    text: 'Manual de Usuario Ventia · Versión 1.0 · Abril 2026',
-  },
+  footer: { component: null },
   useNextSeoProps() {
     return {
       titleTemplate: '%s – VentIA Manual',
@@ -52,6 +50,7 @@ export default {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="VentIA — Manual de Usuario" />
       <meta property="og:description" content="Manual de Usuario para la plataforma VentIA" />
+      <link rel="icon" href="/assets/logo-ventia-celeste.png" type="image/png" />
     </>
   ),
   /* Cyan #29abe2 ≈ hsl(198°, 70%) */
