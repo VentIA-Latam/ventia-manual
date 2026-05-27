@@ -19,3 +19,4 @@ Thumbs.db
 
 # Claude Code project memory (local only)
 .claude/
+_pagefind/

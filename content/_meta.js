@@ -1,0 +1,15 @@
+export default {
+  index: 'Inicio',
+  dashboard: 'Dashboard',
+  pedidos: 'Pedidos',
+  facturacion: 'Facturación',
+  whatsapp: 'WhatsApp',
+  conversaciones: 'Conversaciones',
+  campanias: 'Campañas',
+  agente: 'Personalización del Agente',
+  recordatorios: 'Recordatorios',
+  tickets: 'Tickets',
+  celular: 'App en Celular',
+  glosario: 'Glosario',
+  soporte: '¿Necesitas ayuda?',
+}
